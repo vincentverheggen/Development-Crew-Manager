@@ -8,7 +8,7 @@ import { DevelopersComponent } from './components/developers/developers.componen
 import { HireComponent } from './components/developers/hire/hire.component';
 import { FireComponent } from './components/developers/fire/fire.component';
 import { EditComponent } from './components/developers/edit/edit.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -20,7 +20,8 @@ import { StoreModule } from '@ngrx/store';
 import { developerReducer } from './reducers';
 import { environment } from '../environments/environment';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     MatToolbarModule,
+    MatTableModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

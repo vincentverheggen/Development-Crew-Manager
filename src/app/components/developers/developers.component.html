@@ -1,0 +1,45 @@
+<div class="filter">
+  <mat-icon class="icon">filter_list</mat-icon>
+  <mat-form-field class="input-filter">
+    <input matInput (keyup)="applyFilter()" [(ngModel)]="filterValue" placeholder="Filter">
+  </mat-form-field>
+  <p>Filter on anything you want!</p>
+</div>
+
+<hr />
+
+<table mat-table [dataSource]="developers">
+
+  <ng-container matColumnDef="icon">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let developer"><mat-icon class="icon">person</mat-icon></td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> First name </th>
+    <td mat-cell *matCellDef="let developer"> {{developer.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Last name </th>
+    <td mat-cell *matCellDef="let developer"> {{developer.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let developer"> {{developer.role}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="frameworks">
+    <th mat-header-cell *matHeaderCellDef> Frameworks </th>
+    <td mat-cell *matCellDef="let developer"> {{developer.frameworks}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let developer"> <button>Edit</button> <button>Fire</button></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
