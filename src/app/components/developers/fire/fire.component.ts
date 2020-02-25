@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Developer } from '../../../models/developer.model';
 
 @Component({
   selector: 'app-fire',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FireComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<FireComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Developer) {}
 
   ngOnInit(): void {
+  }
+
+  onNoClick() {
+    this.dialogRef.close();
   }
 
 }

@@ -1,1 +1,14 @@
-<p>fire works!</p>
+<h1 mat-dialog-title>Fire developer:</h1>
+<div mat-dialog-content>
+  <p style="margin-top: 0;">First name: {{ data.firstName }}</p>
+  <p>Last name: {{ data.lastName }}</p>
+  <p>Role: {{ data.role }}</p>
+  <p>Frameworks:</p>
+  <mat-chip-list aria-label="Frameworks">
+    <mat-chip *ngFor="let framework of data.frameworks">{{framework}}</mat-chip>
+  </mat-chip-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">DON'T DELETE</button>
+  <button mat-button class="btnDelete" [mat-dialog-close]="data" cdkFocusInitial>DELETE</button>
+</div>

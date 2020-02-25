@@ -3,22 +3,22 @@ import { edit, fire, hire } from './actions';
 import { Developer } from '../models/developer.model';
 
 export const initialState: Developer[] = [];
+let counter = 0; // should be uuid
 
 const hireDeveloper = (state, action) => {
+  action.developer.id = counter;
+  counter++;
   state.push(action.developer);
   return state;
 };
 
 const fireDeveloper = (state, action) => {
-  const index = this.state.indexOf(action.developer);
-  if (index >= 0) {
-    this.state.splice(index, 1);
-  }
+  return state.filter(e => e.id !== action.developer.id);
 };
 
 const editDeveloper = (state, action) => {
-  // TODO
-  return state;
+  state[action.developer.id] = action.developer;
+  return [...state];
 };
 
 const devReducer = createReducer(initialState,

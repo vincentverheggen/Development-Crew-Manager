@@ -1,1 +1,35 @@
-<p>edit works!</p>
+<h1 mat-dialog-title>Edit developer:</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="First name" [(ngModel)] ='data.firstName'>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Last name" [(ngModel)] ='data.lastName'>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-select formControlName="role" placeholder="Role">
+      <mat-option *ngFor="let role of roles" [value]="role">
+        {{ role }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-chip-list #chipList aria-label="Framework selection">
+    <mat-chip *ngFor="let framework of frameworks" [selectable]="selectable"
+              [removable]="removable" (removed)="removeFramework(framework)">
+      {{framework}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="Framework..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="addFramework($event)">
+  </mat-chip-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">DON'T SAVE EDIT</button>
+  <button mat-button class="btnEdit" [mat-dialog-close]="data" cdkFocusInitial>SAVE EDIT</button>
+</div>
