@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { Developer } from '../../../models/developer.model';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { Store } from '@ngrx/store';
+import {hire} from '../../../reducers/actions';
 
 @Component({
   selector: 'app-hire',
@@ -31,7 +33,7 @@ export class HireComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private store: Store<{ developers: Developer[] }>) { }
 
   ngOnInit(): void {
   }
@@ -67,7 +69,7 @@ export class HireComponent implements OnInit {
         role: this.hireFormGroup.value.role,
         frameworks: this.frameworks
       };
-      console.log(developer);
+      this.store.dispatch(hire({ developer }));
     }
   }
 }
