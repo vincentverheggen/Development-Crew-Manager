@@ -15,18 +15,18 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-// TODO: Making mixin colors
-.btn-hire {
-  background-color: lightgreen;
-  color: black;
-}
 
 .btn-fire {
-  background-color: lightcoral;
-  color: black;
+  background-color: mat-color($dev-theme-warn, 500);
+  color: mat-color($dev-theme-accent, 200);
+}
+
+.btn-hire {
+  background-color: mat-color($mat-green, 300);
+  color: mat-color($dev-theme-accent, 200);
 }
 
 .btn-edit {
-  background-color: lightblue;
-  color: black;
+  background-color: mat-color($dev-theme-primary, 200);
+  color: mat-color($dev-theme-accent, 200);
 }

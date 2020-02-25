@@ -4,6 +4,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Developer } from '../../../models/developer.model';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ROLES_DATA } from '../../../data';
+import { Store } from '@ngrx/store';
+import { fire } from '../../../reducers/actions';
 
 @Component({
   selector: 'app-edit',
@@ -21,7 +23,8 @@ export class EditComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Developer) {}
+    @Inject(MAT_DIALOG_DATA) public data: Developer,
+    private store: Store<{ developers: Developer[] }>) {}
 
   ngOnInit(): void {
   }
@@ -51,4 +54,7 @@ export class EditComponent implements OnInit {
     }
   }
 
+  fire(fireDeveloper: Developer) {
+    this.store.dispatch(fire({ developer: fireDeveloper }));
+  }
 }

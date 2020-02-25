@@ -5,8 +5,8 @@ import { select, Store } from '@ngrx/store';
 import { MatTableDataSource } from '@angular/material/table';
 import { FireComponent } from './fire/fire.component';
 import { MatDialog } from '@angular/material/dialog';
-import {edit, fire} from '../../reducers/actions';
-import {EditComponent} from './edit/edit.component';
+import { edit, fire } from '../../reducers/actions';
+import { EditComponent } from './edit/edit.component';
 
 @Component({
   selector: 'app-developers',

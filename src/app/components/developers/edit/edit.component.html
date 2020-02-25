@@ -32,5 +32,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">DON'T SAVE EDIT</button>
-  <button mat-button class="btnEdit" [mat-dialog-close]="data" cdkFocusInitial>SAVE EDIT</button>
+  <button mat-button class="btn-edit" [mat-dialog-close]="data" cdkFocusInitial>SAVE EDIT</button>
+  <button mat-button class="btn-fire" (click)="fire(data)">FIRE</button>
 </div>
