@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row *ngIf="activeRoute === '/'">
+    <mat-icon class="icon">people</mat-icon>
+    Developers
+    <span class="spacer"></span>
+    <button mat-button routerLink="/developers/hire">Hire</button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="activeRoute === '/developers/hire'">
+    <mat-icon class="icon">work</mat-icon>
+    Hire
+    <span class="spacer"></span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="activeRoute === '/developers/edit'">
+    <mat-icon class="icon">person_pin</mat-icon>
+    TODO // NAME Developer
+    <span class="spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>

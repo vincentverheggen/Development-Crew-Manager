@@ -4,7 +4,7 @@ import { Developer } from '../../../models/developer.model';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Store } from '@ngrx/store';
-import {hire} from '../../../reducers/actions';
+import { hire } from '../../../reducers/actions';
 
 @Component({
   selector: 'app-hire',
@@ -58,7 +58,6 @@ export class HireComponent implements OnInit {
       this.frameworks.splice(index, 1);
     }
   }
-
 
   onSubmit() {
     this.hireFormGroup.markAllAsTouched();

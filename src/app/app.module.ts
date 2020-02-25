@@ -19,6 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { StoreModule } from '@ngrx/store';
 import { developerReducer } from './reducers';
 import { environment } from '../environments/environment';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { environment } from '../environments/environment';
     DevelopersComponent,
     HireComponent,
     FireComponent,
-    EditComponent
+    EditComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +42,12 @@ import { environment } from '../environments/environment';
     MatChipsModule,
     MatIconModule,
     MatButtonModule,
-    StoreModule.forRoot({ developers: developerReducer }),
+    StoreModule.forRoot({developers: developerReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
