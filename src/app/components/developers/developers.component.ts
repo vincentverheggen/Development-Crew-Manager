@@ -29,4 +29,12 @@ export class DevelopersComponent implements OnInit {
     this.developers.filter = this.filterValue && this.filterValue.toLowerCase();
   }
 
+  fire(developer: Developer) {
+
+  }
+
+  edit(developer: Developer) {
+
+  }
+
 }

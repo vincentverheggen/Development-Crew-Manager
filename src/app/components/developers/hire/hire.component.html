@@ -1,5 +1,6 @@
-<form [formGroup]="hireFormGroup" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()" autocomplete="off" spellcheck="false">
+<form class="form" [formGroup]="hireFormGroup" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()" autocomplete="off" spellcheck="false">
   <a type="button" routerLink="/">Back to developers</a>
+  <br />
   <br />
   <mat-form-field>
     <input matInput placeholder="First Name" formControlName="firstName" />
@@ -32,5 +33,6 @@
     </mat-chip-list>
   </mat-form-field>
   <br />
-  <button mat-button type="submit">Hire</button>
+  <br />
+  <button mat-button class="btn-hire" type="submit">Hire</button>
 </form>
