@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Edit developer:</h1>
-<div mat-dialog-content>
+<div mat-dialog-content class="inner">
   <mat-form-field>
     <input matInput placeholder="First name" [(ngModel)] ='data.firstName'>
   </mat-form-field>
@@ -9,7 +9,8 @@
   </mat-form-field>
   <br />
   <mat-form-field>
-    <mat-select formControlName="role" placeholder="Role">
+    <mat-label>{{data.role}}</mat-label>
+    <mat-select placeholder="Role" [(ngModel)] ='data.role'>
       <mat-option *ngFor="let role of roles" [value]="role">
         {{ role }}
       </mat-option>
@@ -17,7 +18,7 @@
   </mat-form-field>
   <br />
   <mat-chip-list #chipList aria-label="Framework selection">
-    <mat-chip *ngFor="let framework of frameworks" [selectable]="selectable"
+    <mat-chip *ngFor="let framework of data.frameworks" [selectable]="selectable"
               [removable]="removable" (removed)="removeFramework(framework)">
       {{framework}}
       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>

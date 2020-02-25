@@ -36,13 +36,7 @@ export class DevelopersComponent implements OnInit {
   fire(developer: Developer) {
     const dialogRef = this.dialog.open(FireComponent, {
       width: 'max-content',
-      data: {
-        id: developer.id,
-        firstName: developer.firstName,
-        lastName: developer.lastName,
-        role: developer.role,
-        frameworks: developer.frameworks
-      }
+      data: JSON.parse(JSON.stringify(developer))
     });
 
     dialogRef.afterClosed().subscribe(fireDeveloper => {
@@ -55,13 +49,7 @@ export class DevelopersComponent implements OnInit {
   edit(developer: Developer) {
     const dialogRef = this.dialog.open(EditComponent, {
       width: 'max-content',
-      data: {
-        id: developer.id,
-        firstName: developer.firstName,
-        lastName: developer.lastName,
-        role: developer.role,
-        frameworks: developer.frameworks
-      }
+      data: JSON.parse(JSON.stringify(developer))
     });
 
     dialogRef.afterClosed().subscribe(editDeveloper => {

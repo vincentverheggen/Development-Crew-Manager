@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Developer } from '../../../models/developer.model';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ROLES_DATA } from '../../../data';
 
 @Component({
   selector: 'app-edit',
@@ -15,13 +16,7 @@ export class EditComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   frameworks = [];
-  roles = [
-    'FE DeveloperModel',
-    'BE DeveloperModel',
-    'PM',
-    'PO',
-    'Analyst',
-  ];
+  roles = ROLES_DATA;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(

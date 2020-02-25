@@ -6,6 +6,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Store } from '@ngrx/store';
 import { hire } from '../../../reducers/actions';
 import { Router } from '@angular/router';
+import { ROLES_DATA } from '../../../data';
 
 @Component({
   selector: 'app-hire',
@@ -20,13 +21,7 @@ export class HireComponent implements OnInit {
     role: [null],
     frameworks: [null],
   });
-  roles = [
-    'FE DeveloperModel',
-    'BE DeveloperModel',
-    'PM',
-    'PO',
-    'Analyst',
-  ];
+  roles = ROLES_DATA;
   frameworks = [];
   visible = true;
   selectable = true;
