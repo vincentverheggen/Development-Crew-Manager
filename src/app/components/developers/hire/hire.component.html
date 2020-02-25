@@ -1,1 +1,36 @@
-<p>hire works!</p>
+<form [formGroup]="hireFormGroup" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()" autocomplete="off" spellcheck="false">
+  <a type="button" routerLink="/">Back to developers</a>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="firstName" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lastName" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-select formControlName="role" placeholder="Role">
+      <mat-option *ngFor="let role of roles" [value]="role">
+        {{ role }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-chip-list #chipList aria-label="Framework selection">
+      <mat-chip *ngFor="let framework of frameworks" [selectable]="selectable"
+                [removable]="removable" (removed)="removeFramework(framework)">
+        {{framework}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Framework..."
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="addFramework($event)">
+    </mat-chip-list>
+  </mat-form-field>
+  <br />
+  <input type="submit" value="Hire" />
+</form>
