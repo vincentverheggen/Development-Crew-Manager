@@ -56,5 +56,6 @@ export class EditComponent implements OnInit {
 
   fire(fireDeveloper: Developer) {
     this.store.dispatch(fire({ developer: fireDeveloper }));
+    this.dialogRef.close();
   }
 }
